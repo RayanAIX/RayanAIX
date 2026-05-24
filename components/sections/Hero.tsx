@@ -30,12 +30,10 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Headline configuration - exact spec
+  // Headline configuration - two lines, each word animated separately
   const headlineLines = [
-    { words: ["Intelligence", "isn't"], accent: false },
-    { words: ["what", "you", "know."], accent: false },
-    { words: ["It's", "whether", "you"], accent: true },
-    { words: ["know", "that", "you", "know."], accent: true },
+    { words: ["Intelligence", "isn't", "what", "you", "know."], accent: false },
+    { words: ["It's", "whether", "you", "know", "that", "you", "know."], accent: true },
   ];
   const totalWords = headlineLines.reduce((sum, line) => sum + line.words.length, 0);
   const baseDelay = 0.4;
@@ -92,7 +90,7 @@ const Hero: React.FC = () => {
               return (
                 <div
                   key={lineIndex}
-                  className="flex flex-wrap justify-center gap-x-4 gap-y-2"
+                  className="flex flex-wrap justify-center gap-y-3 text-center"
                   style={{ marginTop: lineIndex === 0 ? 0 : '0.5rem' }}
                 >
                   {line.words.map((word, wordIndex) => (
@@ -105,7 +103,7 @@ const Hero: React.FC = () => {
                         delay: baseDelay + (startIndex + wordIndex) * staggerDelay,
                         ease: [0.25, 0.1, 0.25, 1],
                       }}
-                      className="inline-block"
+                      className="inline-block mr-[0.22em]"
                       style={{ color: line.accent ? "var(--accent-primary)" : "inherit" }}
                     >
                       {word}
@@ -129,10 +127,10 @@ const Hero: React.FC = () => {
           className="max-w-3xl mx-auto mb-8"
         >
           <p className="font-body text-lg md:text-xl text-text-secondary mb-2">
-            {constants.tagline}
+            Independent AI researcher. Cognitive learning systems builder.
           </p>
           <p className="font-body text-lg md:text-xl text-text-secondary">
-            {constants.location}
+            I study how humans understand things — and build tools that measure it.
           </p>
         </motion.div>
 
@@ -149,15 +147,15 @@ const Hero: React.FC = () => {
         >
           <a
             href="#research"
-            className="btn btn-primary text-lg px-8 py-4"
+            className="btn btn-ghost text-lg px-8 py-4"
           >
             Read the Research
           </a>
           <a
-            href="#projects"
-            className="btn btn-ghost text-lg px-8 py-4"
+            href="#services"
+            className="btn btn-primary text-lg px-8 py-4"
           >
-            See My Work
+            Work With Me →
           </a>
         </motion.div>
 

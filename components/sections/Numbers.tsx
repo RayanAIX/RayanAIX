@@ -2,38 +2,45 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 function AnimatedCounter({
   target,
   suffix = "",
-  duration = 2000,
+  duration = 2200,
 }: {
   target: number;
   suffix?: string;
   duration?: number;
 }) {
-  const [count, setCount] = useState(0);
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
-  const hasAnimated = useRef(false);
+  const [val, setVal] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
 
   useEffect(() => {
-    if (inView && !hasAnimated.current) {
-      hasAnimated.current = true;
-      const startTime = Date.now();
-      const animate = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.round(eased * target));
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-      requestAnimationFrame(animate);
-    }
-  }, [inView, target, duration]);
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setVal(Math.round(eased * target));
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
 
-  return <span ref={ref} className="tabular-nums">{count}{suffix}</span>;
+  return <span ref={ref} className="tabular-nums">{val}{suffix}</span>;
 }
 
 const sparklines = [
@@ -168,7 +175,7 @@ const Numbers: React.FC = () => {
               <div className="flex items-start justify-between mb-3">
                 <div className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-none tabular-nums"
                   style={{ color: stat.accentColor }}>
-                  <AnimatedCounter target={stat.target} suffix={stat.suffix} duration={2} />
+                  <AnimatedCounter target={stat.target} suffix={stat.suffix} duration={2200} />
                 </div>
               </div>
               {/* Sparkline */}

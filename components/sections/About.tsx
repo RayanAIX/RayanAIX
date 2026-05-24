@@ -11,6 +11,7 @@ const About: React.FC = () => {
 
   const socialLinks = [
     { name: "GitHub", href: constants.social.github, handle: "@RayanAIX" },
+    { name: "X / Twitter", href: constants.social.twitter, handle: "@MRayanShahid" },
     { name: "LinkedIn", href: constants.social.linkedin, handle: "Muhammad Rayan Shahid" },
     { name: "Kaggle", href: constants.social.kaggle, handle: "muhammadrayanshahid" },
     { name: "HuggingFace", href: constants.social.huggingface, handle: "RayNetic" },
@@ -21,14 +22,14 @@ const About: React.FC = () => {
   return (
     <section id="about" className="min-h-screen bg-primary py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Left: Photo */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center lg:items-start"
+            className="w-full flex flex-col items-center lg:items-start lg:w-auto lg:flex-shrink-0"
           >
             <div className="relative">
               {/* Glow border */}
@@ -45,19 +46,22 @@ const About: React.FC = () => {
               />
 
               {/* Photo container */}
-              <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-2 border-accent-primary/30">
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border border-[#00d4ff]/20 shadow-[0_0_60px_rgba(0,212,255,0.08)]"
+                style={{ animation: 'float 6s ease-in-out infinite' }}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10" />
                 {imgError ? (
                   <div className="absolute inset-0 bg-secondary/20 flex items-center justify-center">
-                    <span className="font-display text-4xl md:text-5xl text-accent-primary">MR</span>
+                    <span className="font-['Syne'] text-4xl md:text-5xl text-[#00d4ff]">MRS</span>
                   </div>
                 ) : (
                   <Image
                     src="/images/rayan.jpg"
                     alt="Muhammad Rayan Shahid"
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 20rem, 24rem"
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 14rem, (max-width: 1024px) 16rem, 20rem"
+                    loading="eager"
                     onError={() => setImgError(true)}
                   />
                 )}
@@ -120,6 +124,18 @@ const About: React.FC = () => {
                   I'm building things that don't exist yet.
                   That's the only reason worth having.
                 </span>
+              </p>
+
+              <hr className="border-border/30 my-6" />
+
+              <p className="font-body text-text-secondary">
+                For EdTech founders and platform builders:
+                I take on selective projects where the problem genuinely intersects with this work.
+                If your platform assesses learners and you want to know not just what they got right —
+                but whether they truly understand it — that's exactly what I build.{" "}
+                <a href="#services" className="text-[#00d4ff] hover:underline font-semibold">
+                  Let's talk →
+                </a>
               </p>
             </div>
 
