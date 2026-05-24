@@ -55,21 +55,7 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <motion.div className="relative z-10 max-w-7xl mx-auto px-6 text-center" style={{ y: heroY }}>
-        {/* Badge */}
-        <motion.div
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-6"
-        >
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-primary/30 bg-transparent">
-            <span className="font-mono text-xs tracking-widest uppercase text-text-secondary">
-              {constants.title} · Age {constants.age}
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Main Headline */}
+        {/* Badge + Headline grouped together */}
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -82,9 +68,25 @@ const Hero: React.FC = () => {
               },
             },
           }}
-          className="mb-5"
         >
-          <h1 className="font-display text-[clamp(2.25rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-text-primary mb-4">
+          {/* Badge */}
+          <motion.div
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mb-4"
+          >
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-primary/30 bg-accent-primary/5">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-primary mr-2 animate-pulse" />
+              <span className="font-mono text-xs tracking-widest uppercase text-text-secondary">
+                {constants.title} · Age {constants.age}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Main Headline */}
+          <div className="mb-3">
+            <h1 className="font-display text-[clamp(2.25rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-text-primary mb-4">
             {headlineLines.map((line, lineIndex) => {
               const startIndex = headlineLines.slice(0, lineIndex).reduce((sum, l) => sum + l.words.length, 0);
               return (
@@ -113,6 +115,7 @@ const Hero: React.FC = () => {
               );
             })}
           </h1>
+          </div>
         </motion.div>
 
         {/* Subline */}
