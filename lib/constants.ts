@@ -10,6 +10,7 @@ export const constants = {
   social: {
     github: "https://github.com/RayanAIX",
     linkedin: "https://linkedin.com/in/muhammadrayanshahid",
+    twitter: "https://x.com/MRayanShahid",
     kaggle: "https://kaggle.com/muhammadrayanshahid",
     huggingface: "https://huggingface.co/RayNetic",
     youtube: "https://youtube.com/@ByteBrillianceAI",
