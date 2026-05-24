@@ -9,32 +9,30 @@ export interface Project {
   demo?: string;
   demoLabel?: string;
   accuracy?: string;
-  status: "Deployed" | "Research Prototype" | "Research Complete" | "Active Research" | "Operational" | "Published" | "Complete";
+  status: "Deployed" | "Research Prototype" | "Research Complete" | "Active Research" | "Operational" | "Published" | "Complete" | "Live";
   fullDescription?: string;
   architecture?: string;
   highlight?: string;
   featured?: boolean;
+  keyInsight?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "hcms",
-    title: "Human Cognition Measurement System (HCMS)",
+    id: "understandiq",
+    title: "UnderstandIQ",
     description:
-      "A 15-phase, research-grade cognitive assessment framework that goes beyond correctness. Models confidence calibration, reasoning consistency, and cognitive stability. DOI-backed preprint published on Zenodo.",
+      "Cognitive assessment engine that measures whether learners truly understand — not just whether they answered correctly. Confidence calibration, misconception detection, cognitive archetypes from a live AI system.",
+    fullDescription: "UnderstandIQ operationalizes HCMS into a live tool. Upload any document. Answer four question types: MCQ (recall), Short Answer (articulation), Application (transfer), Explain-It (depth). Rate confidence before seeing results. The output is a cognitive fingerprint — accuracy, calibration score, archetype, detected misconceptions, and personalized study recommendations. Built on DOI: 10.5281/zenodo.18269740.",
     category: "Research",
-    accentColor: "#7c3aed",
-    tech: ["Python", "TeX", "LaTeX", "Statistical Analysis", "Psychometrics"],
-    github: "https://github.com/RayanAIX/HCMS-Human-Cognition-Measurement-System",
-    demo: "https://zenodo.org/records/18269740",
-    demoLabel: "Read Preprint",
-    status: "Published",
-    highlight: "DOI-Backed Preprint",
+    accentColor: "#00d4ff",
+    tech: ["Python", "Streamlit", "Groq API", "LLaMA 3.3 70B", "fpdf2", "pdfplumber", "Plotly"],
+    github: "https://github.com/RayanAIX/understandiq",
+    demo: "https://understandiq.streamlit.app",
+    accuracy: "DOI-Backed",
+    status: "Live",
     featured: true,
-    fullDescription:
-      "HCMS challenges the traditional equating of correctness with understanding. It models understanding as a multidimensional construct: accuracy, confidence calibration, reasoning consistency, and robustness under perturbation across 15 structured research phases. The system provides diagnostic signals rather than predictive scores, making it interpretable and reproducible for education and cognitive research.",
-    architecture:
-      "The pipeline processes input questions through four core layers: Understanding Analysis → Confidence Calibration → Consistency Check → Robustness Testing. Each layer produces signals that feed into an Explainability Layer before generating the final Cognitive Profile Output.",
+    keyInsight: "The breakthrough was making open-ended answers score meaningfully. Keyword overlap with model answers turned binary right/wrong into a spectrum of understanding — which is exactly what HCMS says understanding actually is.",
   },
   {
     id: "fake-news-detector",
@@ -50,6 +48,7 @@ export const projects: Project[] = [
     status: "Deployed",
     fullDescription:
       "A machine learning system that classifies news articles as real or fake using text-based features. The Passive Aggressive algorithm with TF-IDF vectorization provides robustness against adversarial examples while maintaining high accuracy on imbalanced datasets.",
+    keyInsight: "TF-IDF outperformed BERT at 1/100th the compute. For structured classification tasks, feature engineering often matters more than model sophistication.",
   },
   {
     id: "emotion-classifier",
@@ -63,6 +62,7 @@ export const projects: Project[] = [
     status: "Deployed",
     fullDescription:
       "A convolutional neural network trained on the FER2013 facial expression dataset. The model detects seven basic emotions (angry, disgust, fear, happy, sad, surprise, neutral) in real-time from webcam feeds, demonstrating practical computer vision applications.",
+    keyInsight: "FER2013 has significant label noise. Training with uncertain ground truth taught more about data quality than any tutorial — noise handling became the real skill.",
   },
   {
     id: "medical-imaging",
@@ -76,6 +76,7 @@ export const projects: Project[] = [
     status: "Research Complete",
     fullDescription:
       "An AI system that detects multiple chest conditions from X-ray images using the ChestMNIST dataset. The multi-label classification approach allows for identifying co-occurring conditions, which is crucial for real-world medical diagnosis support.",
+    keyInsight: "Multi-label classification on imbalanced medical data required custom loss weighting. Binary cross-entropy alone produced 0% recall on rare conditions.",
   },
   {
     id: "speech-translator",
@@ -89,6 +90,7 @@ export const projects: Project[] = [
     status: "Deployed",
     fullDescription:
       "A speech translation system that converts spoken language to text, then translates to target languages. Using OpenAI's Whisper for transcription and Google Translate for translation, it supports over 50 language pairs with near real-time performance.",
+    keyInsight: "Whisper latency was the bottleneck, not accuracy. Chunking audio and streaming partial results made it feel real-time without changing the model at all.",
   },
   {
     id: "social-automation",
@@ -102,6 +104,7 @@ export const projects: Project[] = [
     status: "Operational",
     fullDescription:
       "A content automation pipeline that uses GPT-4 to generate engaging social media posts, then distributes them across multiple platforms. The system includes hashtag optimization, timing algorithms, and performance tracking.",
+    keyInsight: "The most fragile part wasn't the AI — it was rate limiting across three APIs simultaneously. Retry logic with exponential backoff was more valuable than prompt engineering.",
   },
   {
     id: "road-lane-detection",
@@ -113,6 +116,7 @@ export const projects: Project[] = [
     tech: ["Python", "OpenCV", "NumPy", "Computer Vision"],
     github: "https://github.com/RayanAIX/Road-Lane-Detection-OpenCV",
     status: "Complete",
+    keyInsight: "OpenCV's Hough transform performs beautifully in ideal conditions and catastrophically in shadows. 80% of the solution was preprocessing — blur, Canny edges — before the algorithm ran.",
   },
   {
     id: "casting-defect",
@@ -124,6 +128,7 @@ export const projects: Project[] = [
     tech: ["Python", "TensorFlow", "CNN", "Jupyter Notebook"],
     github: "https://github.com/RayanAIX/Casting-Defect-Detection-CNN",
     status: "Complete",
+    keyInsight: "Transfer learning from ImageNet cut training time by 80% without accuracy loss, even though manufacturing images look nothing like ImageNet. Pre-trained features generalize further than expected.",
   },
   {
     id: "telco-churn",
@@ -135,6 +140,7 @@ export const projects: Project[] = [
     tech: ["Python", "Scikit-learn", "Pandas", "Jupyter Notebook"],
     github: "https://github.com/RayanAIX/Telco-Customer-Churn-Prediction",
     status: "Complete",
+    keyInsight: "Customer tenure was the single most predictive feature, outperforming every behavioral signal. Sometimes the simplest feature carries the most signal.",
   },
   {
     id: "vehicle-detection",
@@ -146,6 +152,7 @@ export const projects: Project[] = [
     tech: ["Python", "YOLO", "OpenCV", "Computer Vision"],
     github: "https://github.com/RayanAIX/vehicle-detection-and-counting-yolo",
     status: "Deployed",
+    keyInsight: "YOLO's confidence threshold is the entire system. Too high misses real vehicles; too low hallucinates detections from shadows. Calibration is everything.",
   },
   {
     id: "speech-emotion",
@@ -157,6 +164,7 @@ export const projects: Project[] = [
     tech: ["Python", "Librosa", "TensorFlow", "Audio ML"],
     github: "https://github.com/RayanAIX/Speech-Emotion-Recognition",
     status: "Complete",
+    keyInsight: "MFCCs captured emotion better than raw waveforms — frequency content carries emotional signal more reliably than amplitude.",
   },
 ];
 

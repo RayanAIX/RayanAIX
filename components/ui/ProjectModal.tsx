@@ -147,6 +147,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               </div>
             </div>
 
+            {/* Key Insight */}
+            {project.keyInsight && (
+              <div className="border-l-2 border-[#00d4ff] bg-[rgba(0,212,255,0.04)] rounded-r-lg px-4 py-3">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-[#00d4ff]/60 mb-1">
+                  Key Insight
+                </p>
+                <p className="font-body text-sm italic text-[#8888a0] leading-relaxed">
+                  {project.keyInsight}
+                </p>
+              </div>
+            )}
+
             {/* Links */}
             <div className="flex flex-wrap gap-4 pt-4 border-t border-border">
               <a

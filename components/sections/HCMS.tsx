@@ -249,10 +249,10 @@ const HCMS: React.FC = () => {
                         <path d="M12 2L12 22M2 12L22 12" strokeLinecap="round"/>
                       </svg>
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-display text-xl font-bold text-text-primary mb-2">Confidence Calibration</h4>
                       <p className="font-body text-text-secondary leading-relaxed mb-4">
-                        Measures the alignment between a student&apos;s confidence and their accuracy. Misalignment indicates overconfidence or underconfidence, both signs of unstable understanding.
+                        Measures the gap between how confident a learner claims to be and how accurately they actually perform. Overconfidence with low accuracy is the most dangerous cognitive state — it blocks the self-awareness needed to improve.
                       </p>
                       <div className="w-full max-w-xs h-8 bg-secondary/30 rounded overflow-hidden flex">
                         <div className="h-full bg-accent-primary" style={{ width: "70%" }}></div>
@@ -269,10 +269,10 @@ const HCMS: React.FC = () => {
                         <path d="M3 12h4l3-9 4 18 3-9h4" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-display text-xl font-bold text-text-primary mb-2">Reasoning Consistency</h4>
                       <p className="font-body text-text-secondary leading-relaxed mb-4">
-                        Analyzes whether a student&apos;s reasoning process remains coherent across similar problems. Inconsistent reasoning suggests fragile knowledge that fails under variation.
+                        Tests whether a learner reaches the same conclusion via different reasoning paths. If the answer changes when a question is rephrased, the understanding is fragile. Surface memorization, not comprehension.
                       </p>
                       <svg viewBox="0 0 100 30" className="w-full max-w-xs">
                         <polyline points="0,25 20,20 40,23 60,15 80,10 100,5" fill="none" stroke="var(--accent-primary)" strokeWidth="2"/>
@@ -289,10 +289,10 @@ const HCMS: React.FC = () => {
                         <path d="M12 8v8M8 12h8" strokeLinecap="round"/>
                       </svg>
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-display text-xl font-bold text-text-primary mb-2">Cognitive Stability</h4>
                       <p className="font-body text-text-secondary leading-relaxed mb-4">
-                        Captures how performance varies over time and under pressure. A cognitively stable learner maintains accuracy despite perturbations, indicating robust understanding.
+                        Measures robustness under semantic perturbation: slight rewording, changed framing, added context. True understanding survives these. Memorization doesn&apos;t.
                       </p>
                       <div className="w-full max-w-xs h-8 bg-secondary/30 rounded p-1 flex gap-1">
                         {[60, 75, 50, 80, 90, 65, 70, 85].map((h, i) => (
@@ -311,10 +311,10 @@ const HCMS: React.FC = () => {
                         <path d="M12 2v2M12 20v2M2 12h2M20 12h2" strokeLinecap="round"/>
                       </svg>
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-display text-xl font-bold text-text-primary mb-2">Explainability</h4>
                       <p className="font-body text-text-secondary leading-relaxed mb-4">
-                        Provides interpretable diagnostics for each assessment, showing why a response was classified as calibrated, consistent, or unstable. Transparent signals for educators and researchers.
+                        Can the learner articulate WHY their answer is correct? HCMS evaluates explanation quality alongside correctness. Understanding without explanation is black-box cognition — present but not transferable.
                       </p>
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-accent-primary animate-pulse"></div>
@@ -551,6 +551,13 @@ const HCMS: React.FC = () => {
                   Consistency: 0.83
                 </text>
               </motion.g>
+
+              {/* Clip path to prevent text overflow */}
+              <defs>
+                <clipPath id="nodeClip">
+                  <rect x="82" y="0" width="236" height="600" />
+                </clipPath>
+              </defs>
             </svg>
           </motion.div>
         </div>
