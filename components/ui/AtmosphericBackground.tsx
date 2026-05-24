@@ -21,26 +21,27 @@ export function AtmosphericBackground() {
       <div className="fixed inset-0 -z-20 bg-[#030303]">
         {/* Animated orb 1 — cyan, top left */}
         <div
-          className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full opacity-[0.07]"
+          className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full"
           style={{
             background: "radial-gradient(circle, #00d4ff 0%, transparent 70%)",
-            animation: "orb1 20s ease-in-out infinite alternate",
+            animation: "orb1 22s ease-in-out infinite",
           }}
         />
         {/* Animated orb 2 — violet, bottom right */}
         <div
-          className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.06]"
+          className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full"
           style={{
             background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
-            animation: "orb2 25s ease-in-out infinite alternate",
+            animation: "orb2 25s ease-in-out infinite",
           }}
         />
         {/* Animated orb 3 — cyan, center right — reacts to scroll */}
         <div
           id="scroll-orb"
-          className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-[0.04]"
+          className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full"
           style={{
             background: "radial-gradient(circle, #00d4ff 0%, transparent 70%)",
+            animation: "orb3 18s ease-in-out infinite",
           }}
         />
       </div>

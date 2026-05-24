@@ -8,6 +8,7 @@ import { constants } from "@/lib/constants";
 const navLinks = [
   { name: "Research", href: "#research" },
   { name: "Projects", href: "#projects" },
+  { name: "Services", href: "#services" },
   { name: "About", href: "#about" },
   { name: "Writing", href: "#writing" },
   { name: "Contact", href: "#contact" },
@@ -89,9 +90,7 @@ const Navbar: React.FC = () => {
           {/* CTA */}
           <div className="hidden md:block">
             <motion.a
-              href="https://linkedin.com/in/muhammadrayanshahid"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#services"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/50 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -100,7 +99,7 @@ const Navbar: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              Open to Opportunities ↗
+              Available for EdTech Projects ↗
             </motion.a>
           </div>
 
@@ -171,12 +170,11 @@ const Navbar: React.FC = () => {
                   transition={{ delay: navLinks.length * 0.1 }}
                 >
                   <a
-                    href="https://linkedin.com/in/muhammadrayanshahid"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#services"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/50 text-emerald-400 text-sm font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Open to Opportunities ↗
+                    Available for EdTech Projects ↗
                   </a>
                 </motion.div>
               </div>

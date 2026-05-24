@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const PARTICLE_COUNT = 150;
-const MOBILE_PARTICLE_COUNT = 80;
+const MOBILE_PARTICLE_COUNT = 40;
 const COLORS = [
   "rgba(0, 212, 255, 0.6)",
   "rgba(0, 212, 255, 0.4)",
