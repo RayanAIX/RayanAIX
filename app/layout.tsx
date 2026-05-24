@@ -20,13 +20,19 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Rayan Shahid — AI Researcher, 16",
-  description: "Independent AI researcher. Creator of HCMS — a DOI-backed cognitive measurement framework. Building AI that measures how humans think.",
-  keywords: "Muhammad Rayan Shahid, RayanAIX, HCMS, AI researcher, cognitive AI, Pakistan, DOI, preprint, cognitive stability",
+  title: "Muhammad Rayan Shahid — Cognitive Learning Systems & AI Assessment",
+  description: "I help EdTech platforms measure real understanding, not just correctness. Independent AI researcher (HCMS, DOI:10.5281/zenodo.18269740). Built UnderstandIQ — confidence calibration, misconception detection, cognitive archetypes.",
+  keywords: [
+    "Muhammad Rayan Shahid", "RayanAIX", "ByteBrilliance AI",
+    "cognitive learning systems", "AI assessment", "EdTech AI", "learning analytics",
+    "confidence calibration AI", "misconception detection", "UnderstandIQ",
+    "HCMS cognitive AI", "AI researcher 16", "EdTech freelancer",
+    "learning measurement AI", "metacognition AI", "assessment systems Pakistan"
+  ],
   openGraph: {
-    title: "Muhammad Rayan Shahid — AI Researcher",
-    description: "16-year-old independent AI researcher. Published. Building.",
-    url: "https://muhammad-rayan-shahid-portfolio.vercel.app",
+    title: "Muhammad Rayan Shahid — Cognitive Learning Systems & AI Assessment",
+    description: "I help EdTech platforms measure real understanding, not just correctness. Published researcher. Live system. Available for projects.",
+    url: "https://muhammadrayanshahid.vercel.app",
     type: "website",
     siteName: "Muhammad Rayan Shahid",
   },

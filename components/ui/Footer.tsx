@@ -28,11 +28,20 @@ const Footer: React.FC = () => {
       ),
     },
     {
+      name: "X / Twitter",
+      href: constants.social.twitter,
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+    },
+    {
       name: "Kaggle",
       href: constants.social.kaggle,
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.737 17.621v-6.411c0-2.465 1.747-4.535 4.094-4.535.878 0 1.709.305 2.393.851.727.57.915 1.322.915 2.093 0 1.267-.877 2.235-2.253 2.235-1.266 0-2.084-.724-2.367-1.679l-.568 1.475c.432.964 1.308 1.754 2.391 1.754 1.358 0 2.382-.92 2.382-2.635 0-2.258-1.908-3.473-4.191-3.473-2.58 0-4.074 1.949-4.074 4.183 0 .827.201 1.459.719 1.887.086.072.197.098.336.098.262 0 .391-.152.451-.29l1.152-.385c-.166-.293-.507-.532-1.026-.532-1.067 0-1.833.824-1.833 2.075 0 .739.297 1.345.858 1.708.247.161.36.385.36.659 0 .428-.422.772-1.065.772-1.065 0-1.811-1.46-1.811-3.447 0-1.054.56-1.812 1.573-1.812.889 0 1.364.525 1.591.917l1.135-.294c-.191-.518-.653-.918-1.403-.918-1.116 0-1.842.901-1.842 2.119 0 .623.249 1.127.711 1.506l.112.058.08-.099c1.309-.86 2.131-2.132 2.131-3.621 0-2.318-1.728-3.738-4.394-3.738zm-1.737 3.542c.789 0 1.449-.483 1.449-1.224 0-.766-.689-1.223-1.498-1.223-.833 0-1.45.486-1.45 1.223 0 .741.616 1.224 1.499 1.224zm3.474 0c.789 0 1.449-.483 1.449-1.224 0-.766-.689-1.223-1.498-1.223-.833 0-1.45.486-1.45 1.223 0 .741.617 1.224 1.499 1.224z" />
+          <path d="M18.825 23.859c-.022.092-.107.152-.2.152h-3.139a.214.214 0 01-.201-.146l-5.86-14.329-2.38 2.668v10.952a.195.195 0 01-.193.195H4.027a.195.195 0 01-.193-.195V.841a.195.195 0 01.193-.195h2.826a.195.195 0 01.193.195v9.83l7.434-10.05a.215.215 0 01.201-.142h3.139a.214.214 0 01.199.142l6.59 14.329.2.433.2-.433 6.59-14.329a.214.214 0 01.199-.142h3.139a.215.215 0 01.201.142l7.434 10.05V.841a.195.195 0 01.193-.195h2.826a.195.195 0 01.193.195v22.968a.195.195 0 01-.193.195h-2.826a.195.195 0 01-.193-.195V12.85l-2.38-2.668-5.86 14.329a.214.214 0 01-.201.146h-3.139a.214.214 0 01-.2-.152l-.2-.433z" />
         </svg>
       ),
     },
@@ -41,7 +50,7 @@ const Footer: React.FC = () => {
       href: constants.social.huggingface,
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M2.765 11.365a4.542 4.542 0 0 1 .633-.409A4.167 4.167 0 0 1 7.5 7.5c0 .966.213 1.852.578 2.617a6.59 6.59 0 0 1 2.365-1.053c.808-.39 1.686.14 2.073.978a2.09 2.09 0 0 1-.133 2.061c0 3.104 2.191 5.6 5.2 5.6a4.82 4.82 0 0 0 3.843-1.665c.91-.438 1.163-1.48.639-2.283a6.592 6.592 0 0 1-2.365-1.053c-.81-.39-1.689.14-2.073.977a2.082 2.082 0 0 1-.133-2.061c0-3.104-2.2-5.6-5.2-5.6a4.82 4.82 0 0 0-3.838 1.665c-.906.438-1.16 1.48-.636 2.283z" />
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-2 15a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-4-5.5a2.5 2.5 0 01-5 0 .5.5 0 011 0 1.5 1.5 0 003 0 .5.5 0 011 0zm4 0a2.5 2.5 0 01-5 0 .5.5 0 011 0 1.5 1.5 0 003 0 .5.5 0 011 0z" />
         </svg>
       ),
     },
@@ -50,7 +59,7 @@ const Footer: React.FC = () => {
       href: constants.social.youtube,
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
         </svg>
       ),
     },
@@ -59,62 +68,87 @@ const Footer: React.FC = () => {
       href: constants.social.substack,
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22.539 6.082c-.196-.979-.95-1.695-1.856-1.794-.386-.042-.752-.103-1.095-.192l-2.912.641a.373.373 0 0 0-.297.016c-.105 0-.23-.028-.367-.09l-2.455-1.317a.333.333 0 0 0-.273-.107c-.112 0-.217.037-.293.105l-1.792 2.093c-.033.042-.073.088-.115.141l-.015.02a.37.37 0 0 0-.147.296c0 .042.004.084.018.12l2.362 1.191c.042.021.088.021.131.021.183 0 .354-.067.499-.2.209-.185.287-.494.215-.81a1.973 1.973 0 0 0-.396-.722l.792-2.1a2.191 2.191 0 0 0 .619-.908c.183-.301.431-.493.725-.566a1.867 1.867 0 0 1 .447-.071l2.726.413a.409.409 0 0 1 .282.736z" />
+          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
         </svg>
       ),
     },
   ];
 
+  const quickLinks = [
+    { name: "Research", href: "#research" },
+    { name: "Projects", href: "#projects" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Writing", href: "#writing" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="bg-primary border-t border-border py-12">
+    <footer className="bg-bg-card border-t border-border py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col items-center gap-6">
-          {/* Top glow line */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-accent-primary/50 to-transparent" />
+        {/* Main Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <div className="font-display text-2xl font-bold text-text-primary mb-3">
+              {constants.name}
+            </div>
+            <p className="font-body text-text-secondary text-sm max-w-xs">
+              Measuring understanding, not just correctness · {constants.location}
+            </p>
+          </div>
 
-          {/* Tagline */}
-          <motion.p
-            className="text-text-secondary font-mono text-sm text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {constants.name} · Built with obsession · {constants.location}
-          </motion.p>
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-mono text-xs tracking-widest uppercase text-text-dim mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="font-body text-sm text-text-secondary hover:text-accent-primary transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-          {/* Social links */}
-          <motion.div
-            className="flex items-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {socialLinks.map((social, index) => (
-              <motion.div
-                key={social.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-              >
-                <Link
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-center w-10 h-10 rounded-full bg-secondary/50 text-text-secondary hover:text-accent-primary hover:bg-accent-primary/10 transition-all duration-300"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Social Links */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-secondary/50 border border-border flex items-center justify-center text-text-dim hover:text-accent-primary hover:border-accent-primary/50 transition-all duration-300"
+              title={social.name}
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
 
-          {/* Copyright */}
-          <p className="text-text-dim text-xs font-mono">
-            © 2026 Muhammad Rayan Shahid
+        {/* Bottom */}
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-mono text-xs text-text-dim">
+            &copy; {new Date().getFullYear()} {constants.name}. All rights reserved.
           </p>
+          <div className="flex items-center gap-6 font-mono text-xs text-text-dim">
+            <span>
+              Built with{" "}
+              <span className="text-accent-primary">Next.js</span>
+            </span>
+            <span>
+              Designed by{" "}
+              <span className="text-accent-primary">{constants.name}</span>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
