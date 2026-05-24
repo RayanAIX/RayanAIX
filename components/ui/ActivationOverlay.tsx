@@ -24,32 +24,38 @@ export function ActivationOverlay() {
       return;
     }
 
-    // Start sequence
+    sessionStorage.setItem("hcms_initialized", "true");
     setVisible(true);
-    let timer: NodeJS.Timeout;
 
-    const showNext = (index: number) => {
-      if (index < LINES.length - 1) {
-        timer = setTimeout(() => {
-          setCurrentLine(index + 1);
-        }, 500);
-      } else {
-        // After last line, pause then fade out
-        timer = setTimeout(() => {
-          setVisible(false);
-          setTimeout(() => {
-            sessionStorage.setItem("hcms_initialized", "true");
-            setShowOverlay(false);
-          }, 800);
-        }, 500);
+    const timers: NodeJS.Timeout[] = [];
+
+    // Schedule each line appearing one after another
+    LINES.forEach((_, i) => {
+      if (i > 0) {
+        timers.push(
+          setTimeout(() => setCurrentLine(i), 500 + i * 400)
+        );
       }
-    };
+    });
 
-    // Kick off after 0.5s initial delay? The first line appears immediately? Spec: "Initializing HCMS..." then 0.5s pause before next.
-    // We'll show first line immediately, then schedule next.
-    timer = setTimeout(() => showNext(0), 500);
+    // After last line, fade out
+    const fadeDelay = 500 + LINES.length * 400;
+    timers.push(
+      setTimeout(() => {
+        setVisible(false);
+        setTimeout(() => setShowOverlay(false), 800);
+      }, fadeDelay)
+    );
 
-    return () => clearTimeout(timer);
+    // Failsafe: force hide after 5 seconds no matter what
+    timers.push(
+      setTimeout(() => {
+        setVisible(false);
+        setTimeout(() => setShowOverlay(false), 300);
+      }, 5000)
+    );
+
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   if (!showOverlay) return null;
@@ -74,7 +80,6 @@ export function ActivationOverlay() {
                 {line}
               </motion.div>
             ))}
-            {/* Blinking cursor after current line */}
             {currentLine < LINES.length - 1 && (
               <span className="inline-block w-2 h-4 bg-[#00d4ff] ml-2 animate-pulse" />
             )}
