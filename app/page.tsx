@@ -9,6 +9,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { ActivationOverlay } from "@/components/ui/ActivationOverlay";
 import Hero from "@/components/sections/Hero";
 import StorytellingScroll from "@/components/sections/StorytellingScroll";
 import UnderstandingSection from "@/components/sections/UnderstandingSection";
@@ -20,6 +21,8 @@ import Skills from "@/components/sections/Skills";
 import Writing from "@/components/sections/Writing";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
+import Services from "@/components/sections/Services";
+import { AvailableBadge } from "@/components/ui/AvailableBadge";
 
 const ReadingProgressBar = () => {
   const { scrollYProgress } = useScroll();
@@ -78,8 +81,8 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      {/* Activation Overlay - DISABLED for urgent fix */}
-      {/* <ActivationOverlay /> */}
+      {/* Activation Overlay */}
+      <ActivationOverlay />
 
       {/* Reading Progress Bar */}
       <ReadingProgressBar />
@@ -119,6 +122,27 @@ const HomePage: React.FC = () => {
         <Projects />
         <SectionDivider />
 
+        {/* Section: Services */}
+        <Services />
+        <SectionDivider />
+
+        {/* Testimonials Placeholder */}
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p className="font-mono text-xs tracking-widest uppercase text-text-dim mb-6">
+              What People Say
+            </p>
+            <div className="border border-dashed border-[#ffffff]/10 rounded-2xl p-8">
+              <p className="font-body text-sm text-text-dim leading-relaxed">
+                Collecting feedback from first EdTech projects and research collaborators.
+                <br />
+                Testimonials appear here as they come in.
+              </p>
+            </div>
+          </div>
+        </section>
+        <SectionDivider />
+
         {/* Section 6: Numbers */}
         <Numbers />
         <SectionDivider />
@@ -142,6 +166,9 @@ const HomePage: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Available Badge */}
+      <AvailableBadge />
     </>
   );
 };
