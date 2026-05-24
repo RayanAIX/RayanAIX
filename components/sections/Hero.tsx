@@ -30,7 +30,6 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Headline configuration - two lines, each word animated separately
   const headlineLines = [
     { words: ["Intelligence", "isn't", "what", "you", "know."], accent: false },
     { words: ["It's", "whether", "you", "know", "that", "you", "know."], accent: true },
@@ -38,10 +37,6 @@ const Hero: React.FC = () => {
   const totalWords = headlineLines.reduce((sum, line) => sum + line.words.length, 0);
   const baseDelay = 0.4;
   const staggerDelay = 0.15;
-
-  const sublineWords = [
-    `${constants.location} · ${constants.organization} Founder`,
-  ];
 
   return (
     <section
@@ -54,99 +49,83 @@ const Hero: React.FC = () => {
       </motion.div>
 
       {/* Content */}
-      <motion.div className="relative z-10 max-w-7xl mx-auto px-6 text-center" style={{ y: heroY }}>
-        {/* Badge + Headline grouped together */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                when: "beforeChildren",
-              },
-            },
-          }}
-        >
-          {/* Badge */}
-          <motion.div
-            initial={{ y: -30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-4"
-          >
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-primary/30 bg-accent-primary/5">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-primary mr-2 animate-pulse" />
-              <span className="font-mono text-xs tracking-widest uppercase text-text-secondary">
-                {constants.title} · Age {constants.age}
-              </span>
-            </div>
-          </motion.div>
+      <motion.div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 text-center" style={{ y: heroY }}>
 
-          {/* Main Headline */}
-          <div className="mb-3">
-            <h1 className="font-display text-[clamp(2.25rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-text-primary mb-4">
-            {headlineLines.map((line, lineIndex) => {
-              const startIndex = headlineLines.slice(0, lineIndex).reduce((sum, l) => sum + l.words.length, 0);
-              return (
-                <div
-                  key={lineIndex}
-                  className="flex flex-wrap justify-center gap-y-3 text-center"
-                  style={{ marginTop: lineIndex === 0 ? 0 : '0.5rem' }}
-                >
-                  {line.words.map((word, wordIndex) => (
-                    <motion.span
-                      key={`${lineIndex}-${wordIndex}`}
-                      initial={{ y: 60, opacity: 0 }}
-                      animate={inView ? { y: 0, opacity: 1 } : {}}
-                      transition={{
-                        duration: 0.8,
-                        delay: baseDelay + (startIndex + wordIndex) * staggerDelay,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      }}
-                      className="inline-block mr-[0.22em]"
-                      style={{ color: line.accent ? "var(--accent-primary)" : "inherit" }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))}
-                </div>
-              );
-            })}
-          </h1>
+        {/* Badge */}
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-5"
+        >
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-primary/30 bg-accent-primary/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-primary mr-2 animate-pulse" />
+            <span className="font-mono text-xs tracking-widest uppercase text-text-secondary">
+              {constants.title} · Age {constants.age}
+            </span>
           </div>
         </motion.div>
 
+        {/* Headline */}
+        <h1 className="font-display text-[clamp(2.25rem,8vw,6rem)] font-bold leading-[1.1] tracking-tight text-text-primary mb-5">
+          {headlineLines.map((line, lineIndex) => {
+            const startIndex = headlineLines.slice(0, lineIndex).reduce((sum, l) => sum + l.words.length, 0);
+            return (
+              <div
+                key={lineIndex}
+                className="flex flex-wrap justify-center gap-y-2 text-center"
+                style={{ marginTop: lineIndex === 0 ? 0 : '0.3rem' }}
+              >
+                {line.words.map((word, wordIndex) => (
+                  <motion.span
+                    key={`${lineIndex}-${wordIndex}`}
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={inView ? { y: 0, opacity: 1 } : {}}
+                    transition={{
+                      duration: 0.6,
+                      delay: baseDelay + (startIndex + wordIndex) * staggerDelay,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                    className="inline-block mr-[0.22em]"
+                    style={{ color: line.accent ? "var(--accent-primary)" : "inherit" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+            );
+          })}
+        </h1>
+
         {/* Subline */}
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.8,
-            delay: totalWords * staggerDelay + 0.8,
+            duration: 0.6,
+            delay: totalWords * staggerDelay + 0.6,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className="max-w-3xl mx-auto mb-8"
+          className="max-w-2xl mx-auto mb-8"
         >
           <p className="font-body text-lg md:text-xl text-text-secondary mb-2">
             Independent AI researcher. Cognitive learning systems builder.
           </p>
-          <p className="font-body text-lg md:text-xl text-text-secondary">
+          <p className="font-body text-base md:text-lg text-text-dim">
             I study how humans understand things — and build tools that measure it.
           </p>
         </motion.div>
 
         {/* CTAs */}
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.8,
-            delay: totalWords * staggerDelay + 1,
+            duration: 0.6,
+            delay: totalWords * staggerDelay + 0.9,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <a
             href="#research"
