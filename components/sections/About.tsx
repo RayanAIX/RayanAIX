@@ -86,7 +86,7 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col justify-center"
+            className="flex-1 min-w-0 w-full flex flex-col justify-center"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-8">
               The Manifesto
@@ -151,7 +151,7 @@ const About: React.FC = () => {
                 229 contributions in 2025 · Joined GitHub Jun 2025 · 23 public repos
               </p>
               {/* Mini heatmap: 7 rows x 52 columns */}
-              <div className="flex gap-[3px] w-full max-w-md mx-auto">
+              <div className="flex gap-[3px] w-full max-w-md overflow-x-auto pb-2">
                 {Array.from({ length: 52 }).map((_, week) => (
                   <div key={week} className="flex flex-col gap-[3px]">
                     {Array.from({ length: 7 }).map((_, day) => {

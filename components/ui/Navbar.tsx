@@ -87,21 +87,6 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:block">
-            <motion.a
-              href="#services"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/50 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-              </span>
-              Available for EdTech Projects ↗
-            </motion.a>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -164,19 +149,6 @@ const Navbar: React.FC = () => {
                     </Link>
                   </motion.div>
                 ))}
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
-                >
-                  <a
-                    href="#services"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/50 text-emerald-400 text-sm font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Available for EdTech Projects ↗
-                  </a>
-                </motion.div>
               </div>
             </motion.div>
           )}

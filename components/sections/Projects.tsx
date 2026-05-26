@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
               <div className="absolute left-0 top-0 bottom-0 w-1/2 bg-gradient-to-r from-[#00d4ff]/20 to-transparent pointer-events-none" />
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1">
-                  <div className="text-xs font-mono text-accent-primary uppercase tracking-widest mb-2">★ FLAGSHIP RESEARCH</div>
+                  <div className="text-xs font-mono text-accent-primary uppercase tracking-widest mb-2">★ FLAGSHIP PROJECT</div>
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-text-primary mb-4">{project.title}</h3>
                   <p className="font-body text-text-secondary max-w-2xl mb-6">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -53,7 +53,7 @@ const Projects: React.FC = () => {
                   </div>
                   <div className="flex gap-4">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-primary/50 text-accent-primary text-sm font-medium hover:bg-accent-primary/10 transition-colors">
-                      {project.demoLabel || 'Read Preprint'} ↗
+                      {project.demoLabel || 'Try Live Demo'} ↗
                     </a>
                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-text-secondary text-sm font-medium hover:border-accent-primary/50 hover:text-accent-primary transition-colors">
                       GitHub ↗

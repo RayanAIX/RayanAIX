@@ -1,13 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { constants } from "@/lib/constants";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const HCMS: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -17,77 +13,7 @@ const HCMS: React.FC = () => {
     triggerOnce: true,
   });
 
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1], [0, -100]);
-
-  // Animate pipeline diagram on scroll
-  useEffect(() => {
-    if (!diagramRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const nodes = diagramRef.current?.querySelectorAll(".pipeline-node");
-      const lines = diagramRef.current?.querySelectorAll(".pipeline-line");
-
-      nodes?.forEach((node, i) => {
-        // Animate node container
-        gsap.fromTo(
-          node,
-          { opacity: 0, scale: 0.8 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            delay: i * 0.2,
-            scrollTrigger: {
-              trigger: node as Element,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-
-        // Animate rect border opacity inside node
-        const rect = (node as SVGGElement).querySelector("rect");
-        if (rect) {
-          gsap.fromTo(
-            rect,
-            { strokeOpacity: 0.3 },
-            {
-              strokeOpacity: 1,
-              duration: 0.6,
-              delay: i * 0.2,
-              scrollTrigger: {
-                trigger: node as Element,
-                start: "top 80%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-        }
-      });
-
-      lines?.forEach((line, i) => {
-        const path = line as SVGLineElement;
-        const length = path.getTotalLength?.() || 0;
-
-        gsap.fromTo(
-          path,
-          { strokeDasharray: length, strokeDashoffset: length },
-          {
-            strokeDashoffset: 0,
-            duration: 0.8,
-            delay: i * 0.15 + 0.4,
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 60%",
-            },
-          }
-        );
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
+  // Pipeline animation handled by framer-motion — GSAP removed for mobile reliability
 
   const metrics = [
     { label: "Research Phases", value: "15" },
@@ -154,7 +80,7 @@ const HCMS: React.FC = () => {
       }}
       className="relative min-h-screen bg-primary py-24 overflow-hidden"
     >
-      <motion.div style={{ y }} className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -641,7 +567,7 @@ const HCMS: React.FC = () => {
             ))}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
